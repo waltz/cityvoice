@@ -38,10 +38,10 @@ ActiveRecord::Schema.define(version: 20140329162040) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "most_recent_activity"
     t.string   "lat"
     t.string   "long"
     t.text     "description"
+    t.datetime "most_recent_activity"
   end
 
   create_table "notification_subscriptions", force: true do |t|
