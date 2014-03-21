@@ -472,7 +472,6 @@ describe VoiceFeedbackController do
 
     before do
       AppContentSet.create!(call_in_code_digits: '1')
-      ENV['SURVEY_NAME'] ||= 'taquerias'
     end
 
     def make_request(params = {'To' => '+15745842971'})
@@ -552,12 +551,6 @@ describe VoiceFeedbackController do
           expect {
             make_request('Digits' => property.property_code)
           }.to change { session[:property_id] }.to(property.id)
-        end
-
-        it 'sets the survey name' do
-          expect {
-            make_request('Digits' => property.property_code)
-          }.to change { session[:survey] }.to('taquerias')
         end
 
         it 'redirects to the messages prompt' do
