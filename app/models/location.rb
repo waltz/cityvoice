@@ -16,7 +16,7 @@ class Location < ActiveRecord::Base
   has_many :notification_subscriptions
   has_many :answers
 
-  attr_accessible :name, :lat, :long, :description, :most_recent_activity
+  attr_accessible :id, :name, :lat, :long, :description, :most_recent_activity
 
   validates :name, presence: true
 
