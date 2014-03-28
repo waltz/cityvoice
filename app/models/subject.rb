@@ -16,7 +16,7 @@
 class Subject < ActiveRecord::Base
   has_many :feedback_inputs, foreign_key: :property_id
 
-  attr_accessible :name, :lat, :long, :description
+  attr_accessible :id, :name, :lat, :long, :description
 
   validates :name, presence: true
 
