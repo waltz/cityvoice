@@ -59,7 +59,7 @@
 
 		<%= yield %>
 
-        <% unless @content.feedback_form_url.empty? %>
+        <% if @content.feedback_form_url.present? %>
           <div id="feedback">
             <a href="<%= @content.feedback_form_url %>" target="_blank"><img src="/assets/feedback_button.png" /></a>
           </div>
