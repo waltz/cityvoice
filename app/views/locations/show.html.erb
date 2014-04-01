@@ -1,3 +1,20 @@
+<script>
+  $(function () {
+    var map = L.mapbox.map('map', mapboxMapID).setView([41.6696, -86.246], 11);
+
+    L.geoJson({
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+            coordinates: [ <%= @location.long -%>, <%= @location.lat -%> ]
+        },
+        properties: {
+           'marker-size': 'large',
+        }
+    }).addTo(map);
+  });
+</script>
+
 <div class="container">
 	<div class="center">
 	<p id="notice"><%= notice %></p>
@@ -7,10 +24,10 @@
 			<div class="span6 offset1 ">
 				<div class="info_box learn">
 					<div class="row">
-						<div class="span2">
+						<div class="span6">
 							<img class="action_icon" src="/assets/learnicon.png" />
 							<div class="address" style="margin-top: .25em;">
-							  	<%= @location.name %><br>
+							  <%= @location.name.chomp %>
 							</div>
 						</div>
 						<div class="span3" id="subject_description_box">
